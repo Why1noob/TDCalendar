@@ -1,0 +1,6 @@
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\bin\TDCalendar.dll.config
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\bin\TDCalendar.dll
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\bin\TDCalendar.pdb
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\obj\Debug\TDCalendar.csprojResolveAssemblyReference.cache
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\obj\Debug\TDCalendar.dll
+C:\projects\ToDoCalendar\TDCalendar\TDCalendar\obj\Debug\TDCalendar.pdb
