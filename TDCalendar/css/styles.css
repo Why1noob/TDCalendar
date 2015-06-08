@@ -4,5 +4,6 @@
 
 #header {
     font-family: Impact, Charcoal, sans-serif;
-
+    border-color: #000000;
+    border-style: inset;
 }
