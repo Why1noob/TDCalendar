@@ -59,7 +59,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.cshtml" />
+    <Content Include="layout.cshtml" />
+    <Content Include="BodyCarousel.cshtml" />
+    <Content Include="carouselItemInner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,6 +72,7 @@
   <ItemGroup>
     <Content Include="css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\layoutControls.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
