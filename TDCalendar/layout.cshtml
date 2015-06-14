@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="~/css/styles.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="~/js/layoutControls.js"></script>
         <title>Ежедневник</title>
     </head>
 <body>
@@ -36,8 +37,9 @@
             @RenderBody()
         </div>
         <div class="row" id="footer">
+            <div class="col-sm-12 invisible">a</div>
             <div class="col-sm-2">
-                <button>Запустить таймер</button>
+                <button id="timer-btn" onclick="startStopTimer()">Запустить таймер</button>
                 <div class="invisible">a</div>
             </div>
             <div class="col-sm-10 text-center"> a </div>
