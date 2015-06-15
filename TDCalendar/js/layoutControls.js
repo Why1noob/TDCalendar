@@ -1,12 +1,12 @@
 ﻿function startStopTimer() {
-    var timerButton = $("#timer-btn");
-    console.log(timerButton.text());
-    if (timerButton.text() == "Запустить таймер") {
-        timerButton.text("Остановить таймер");
-        setTimeout(function () { console.log("timer started") }, 1000);
-    }
-    if (timerButton.text() == "Остановить таймер") {
-        timerButton.text("Запустить таймер");
-        setTimeout(function () { console.log("timer stoped") }, 1000);
+    var timerStartButton = $("#timer-start-btn");
+    var timerStopButton = $("#timer-stop-btn");
+    var timerStarted = timerStartButton.is(":visible");
+    if (timerStarted) {
+        timerStartButton.hide();
+        timerStopButton.show();
+    } else {
+        timerStartButton.show();
+        timerStopButton.hide();
     }
 }
