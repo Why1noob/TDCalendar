@@ -18,9 +18,8 @@
     </div>
     <div class="row col-sm-8">
        @{
-           /*
+           
             const string connectionString = @"Provider=Microsoft.ACE.OLEDB.15.0;Data Source=C:/projects/ToDoCalendar/TDCalendar/TDCalendar/TDC.accdb; Persist Security Info=False;";
-       //     var connectionString = somestring.Replace('\\', '\');
             var query = "SELECT * FROM Tasks WHERE PlannedDate = #" + date + "#;";
             var ds = new DataSet();
             var con = new OleDbConnection(connectionString);
@@ -54,7 +53,7 @@
             {
                 Response.Write(@"<script>alert('DB Error:"+ex+"');</script>");
             }
-        }*/
+        }
        }
          <div class="row col-sm-12">
                   <div class="col-sm-11 text-center alert alert-info">%Task1</div>
