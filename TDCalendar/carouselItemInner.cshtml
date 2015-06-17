@@ -19,23 +19,15 @@
     <div class="row col-sm-8">
        @{
            
-            const string connectionString = @"Provider=Microsoft.ACE.OLEDB.15.0;Data Source=C:/projects/ToDoCalendar/TDCalendar/TDCalendar/TDC.accdb; Persist Security Info=False;";
-            var query = "SELECT * FROM Tasks WHERE PlannedDate = #" + date + "#;";
-            var ds = new DataSet();
-            var con = new OleDbConnection(connectionString);
-            try
-            {
-                
-                con.Open();
-                var da = new OleDbDataAdapter(query, con);
-                da.Fill(ds, "Tasks");
-                var numerator = 1;
-                for (var c = 0; c < ds.Tables["Tasks"].Rows.Count;c++)
-                {    
+            var db = Database.Open("TDCalendar");
+            var sqlQuery = "SELECT * FROM Tasks WHERE PlannedDate = '06/18/2015';";
+            foreach(var row in db.Query(sqlQuery))
+                {
+                    var numerator = 1;
                     <div class="row col-sm-12">
-                        <div class="col-sm-11 text-center alert alert-info"><strong>@numerator.ToString(CultureInfo.InvariantCulture)+" "</strong><span>@ds.Tables["Tasks"].Rows[c]["Task"]<</span></div>
+                        <div class="col-sm-11 text-center alert alert-info"><strong>@numerator.ToString(CultureInfo.InvariantCulture) </strong><span>@row.Task</span></div>
                         @{
-                            if ((bool) ds.Tables["Tasks"].Rows[c]["Completed"])
+                            if (Convert.ToBoolean(row.Completed))
                             {
                                 <div class="col-sm-1"><input type="checkbox" checked="checked" value="" disabled="disabled" class="disabled" /></div>
                             }
@@ -45,24 +37,8 @@
                             }
                         }
                     </div>
-                    numerator++;
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                Response.Write(@"<script>alert('DB Error:"+ex+"');</script>");
-            }
         }
        }
-         <div class="row col-sm-12">
-                  <div class="col-sm-11 text-center alert alert-info">%Task1</div>
-                  <div class="col-sm-1"><input type="checkbox" value="" disabled="disabled" class="disabled" /></div>
-              </div>
-            <div class="row col-sm-12">
-                <div class="col-sm-11 text-center alert alert-info">%Task2</div>
-                <div class="col-sm-1"><input type="checkbox" value="" disabled="disabled" class="disabled" /></div>
-            </div>
             <div class="col-ms-12 invisible">a</div>
         </div>
 
