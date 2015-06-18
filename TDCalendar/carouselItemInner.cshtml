@@ -1,6 +1,4 @@
-﻿@using System.Data
-@using System.Data.OleDb
-@using System.Globalization
+﻿@using System.Globalization
 <div class="row">
     <div class="row" id="carousel-item-header">
         <div class="col-sm-10 invisible">a</div>
@@ -20,24 +18,27 @@
        @{
            
             var db = Database.Open("TDCalendar");
-            var sqlQuery = "SELECT * FROM Tasks WHERE PlannedDate = '06/18/2015';";
-            foreach(var row in db.Query(sqlQuery))
+           const string sqlQuery = "SELECT * FROM Tasks WHERE PlannedDate = '06/18/2015';";
+           var numerator = 1;
+           foreach(var row in db.Query(sqlQuery))
                 {
-                    var numerator = 1;
                     <div class="row col-sm-12">
                         <div class="col-sm-11 text-center alert alert-info"><strong>@numerator.ToString(CultureInfo.InvariantCulture) </strong><span>@row.Task</span></div>
                         @{
                             if (Convert.ToBoolean(row.Completed))
                             {
-                                <div class="col-sm-1"><input type="checkbox" checked="checked" value="" disabled="disabled" class="disabled" /></div>
+                                <div class="col-sm-1"><input type="checkbox" checked="checked" value="" disabled="disabled" class="disabled"/>
+                                </div>
                             }
                             else
                             {
-                                <div class="col-sm-1"><input type="checkbox" value="" disabled="disabled" class="disabled" /></div>
+                                <div class="col-sm-1"><input type="checkbox" value="" disabled="disabled" class="disabled"/>
+                                </div>
                             }
                         }
                     </div>
-        }
+                    numerator++;
+                }
        }
             <div class="col-ms-12 invisible">a</div>
         </div>

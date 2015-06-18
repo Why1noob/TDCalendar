@@ -1,6 +1,7 @@
-﻿@{
-    Layout = null;
-}
+﻿@using System.Web.Services.Description
+@using System.Web.UI.HtmlControls
+@using HtmlAgilityPack
+
 
 <!DOCTYPE html>
 
@@ -16,43 +17,49 @@
         <title>Ежедневник</title>
     </head>
 <body style="background-color: #eee8aa">
-    <div class="container" id="container">
-        <div class="row" id="header">
-            <div class="col-sm-10">
-                <h1 class="text-center" id="header-text">Ежедневник задач по саморазвитию</h1>
-            </div>
-            <div class="col-sm-2" id="account-info">
-                <div class="invisible">a</div>
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Артём
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" onclick="">Артём</a></li>
-                        <li><a href="#">Юля</a></li>
-                    </ul>
-                </div>
-            </div>
+<asp:HiddenField ID="hffOwner" runat="server"/>
+@{
+    
+    var doc = new HtmlDocument();
+    
+}
+<div class="container" id="container">
+    <div class="row" id="header">
+        <div class="col-sm-10">
+            <h1 class="text-center" id="header-text">Ежедневник задач по саморазвитию</h1>
         </div>
-        <div id="body">
-            @RenderBody()
-        </div>
-        <div class="row" id="footer">
-            <div class="col-sm-12 invisible">a</div>
-            <div class="col-sm-2">
-                <button class="btn btn-info" id="timer-start-btn" onclick="startStopTimer()">Запустить таймер</button>
-                <button class="btn btn-info" id="timer-stop-btn" onclick="startStopTimer()">Остановить таймер</button>
-                <div class="invisible">a</div>
+        <div class="col-sm-2" id="account-info">
+            <div class="invisible">a</div>
+            <div class="dropdown">
+                <button id="owner-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">@ltOwner
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="ownerSelect(this)">Артём</a></li>
+                    <li><a href="#" onclick="ownerSelect(this)">Юля</a></li>
+                </ul>
             </div>
-            <div class="col-sm-10 text-center"> a </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $("#myCarousel").carousel({ interval: false });
-        });
-        $(document).ready(function() {
-            $("#timer-stop-btn").hide();
-        });
-    </script>
+    <div id="body">
+        @RenderBody()
+    </div>
+    <div class="row" id="footer">
+        <div class="col-sm-12 invisible">a</div>
+        <div class="col-sm-2">
+            <button class="btn btn-info" id="timer-start-btn" onclick="startStopTimer()">Запустить таймер</button>
+            <button class="btn btn-info" id="timer-stop-btn" onclick="startStopTimer()">Остановить таймер</button>
+            <div class="invisible">a</div>
+        </div>
+        <div class="col-sm-10 text-center"> a </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#myCarousel").carousel({ interval: false });
+    });
+    $(document).ready(function() {
+        $("#timer-stop-btn").hide();
+    });
+</script>
 </body>
 </html>

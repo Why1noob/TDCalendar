@@ -10,3 +10,9 @@
         timerStopButton.hide();
     }
 }
+
+function ownerSelect(sender) {
+    var ownerName = sender.innerHTML;
+    $("#hffOwner").value = ownerName;
+    $("#owner-selector").text(ownerName);
+}
