@@ -1,6 +1,6 @@
-﻿@using System.Web.Services.Description
-@using System.Web.UI.HtmlControls
-@using HtmlAgilityPack
+﻿@{
+    var tOwner = "Артём";
+}
 
 
 <!DOCTYPE html>
@@ -17,13 +17,20 @@
         <title>Ежедневник</title>
     </head>
 <body style="background-color: #eee8aa">
-<asp:HiddenField ID="hffOwner" runat="server"/>
-@{
-    
-    var doc = new HtmlDocument();
-    
-}
 <div class="container" id="container">
+    <form id="form1" runat="server">
+        <div>
+            <input id="Hidden1" type="hidden" runat="server"/>
+            <asp:Button ID="Button1" runat="server" OnClientClick="abc()" Text="Button"
+                        onclick="Button1_Click"/>
+        </div>
+    </form>
+    @{ 
+        protected void button1Click(object sender, EventArgs e)
+        {
+            Response.Write(Hidden1.Value);
+        }
+    }
     <div class="row" id="header">
         <div class="col-sm-10">
             <h1 class="text-center" id="header-text">Ежедневник задач по саморазвитию</h1>
@@ -31,7 +38,7 @@
         <div class="col-sm-2" id="account-info">
             <div class="invisible">a</div>
             <div class="dropdown">
-                <button id="owner-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">@ltOwner
+                <button id="owner-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Артём
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#" onclick="ownerSelect(this)">Артём</a></li>

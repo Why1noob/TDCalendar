@@ -13,6 +13,9 @@
 
 function ownerSelect(sender) {
     var ownerName = sender.innerHTML;
-    $("#hffOwner").value = ownerName;
     $("#owner-selector").text(ownerName);
+    var caret = document.createElement("span");
+    caret.className = "caret";
+    document.getElementById("owner-selector").appendChild(caret);
+    document.getElementById("Hidden1").value = ownerName;
 }
